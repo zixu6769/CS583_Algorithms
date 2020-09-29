@@ -37,9 +37,9 @@ def heapSort(A):
 		A[0] = A[i]
 		A[i] = temp
 		size -= 1
-		print(A)
 		maxHeapify(A, 0, size)
-
+	return A
+	
 if __name__ == '__main__':
-	array = [0,1,2,3,4,5,6]
-	heapSort(array)
+	array = [3,5,2,1,6,7,100,32]
+	print(heapSort(array))
