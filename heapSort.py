@@ -77,6 +77,15 @@ def insert(A, key):
 	A.insert(A.heapSize-1, -math.inf)
 	increaseKey(A, A.heapSize-1, key)
 
+#******** Problem 6-1 ********#
+def buildMaxHeapPrime(A):
+	a = []
+	h = Heap(a)
+	h.heapSize = 0
+	for i in range(0, A.length):
+		insert(h, A[i])
+	return h
+
 if __name__ == '__main__':
 	A1 = [4,1,3,2,16,9,10,14,8,7] # textbook page 161
 	print("*** test1 ***")
@@ -106,3 +115,12 @@ if __name__ == '__main__':
 	print("inserting 50 ...")
 	insert(h3, 50)
 	print("new heap: ", h3)
+
+	print("*** Problem 6-1 ***")
+	A4 = [4,1,3,2,16,9,10,14,8,7]
+	h4 = Heap(A4)
+	buildMaxHeap(h4)
+	print("original array     ", A4)
+	print("buildMaxHeap:      ", h4)
+	h4 = Heap(A4)
+	print("buildMaxHeapPrime: ", buildMaxHeapPrime(h4))
