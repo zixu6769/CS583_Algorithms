@@ -119,8 +119,8 @@ def extractMin(A):
 	return minVal
 
 def decreaseKey(A, i, key):
-	if (key < A[i]):
-		raise ValueError('ERROR: new key is greater than current key')
+	if (key > A[i]):
+		raise ValueError('ERROR: new key is greater than current key', key, A[i])
 	A[i] = key
 	while (i > 0 and A[A.parent(i)] > key):
 		A[i] = A[A.parent(i)]
