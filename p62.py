@@ -55,9 +55,10 @@ def extractMax(A):
 	A[0] = A[A.heapSize - 1]
 	A.heapSize -= 1
 	A.pop()
-	maxHeapify(A, 0)
+	maxHeapify(A, 0) 
 	return maxVal
 
+# O(logdn)
 def increaseKey(A, i, key):
 	if (key < A[i]):
 		raise ValueError('ERROR: new key is smaller than current key')
@@ -68,6 +69,7 @@ def increaseKey(A, i, key):
 		A[A.parent(i)] = temp
 		i = A.parent(i)
 
+# O(logdn)
 def insertMaxHeap(A, key):
 	A.heapSize += 1
 	A.insert(A.heapSize-1, -math.inf)
@@ -78,5 +80,5 @@ if __name__ == '__main__':
 	h = Heap(A,3)
 	buildMaxHeap(h)
 	print(h)
-	print(extractMax(h))
+	print(insertMaxHeap(h, 100))
 	print(h)
