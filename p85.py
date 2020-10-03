@@ -1,34 +1,21 @@
 '''
-Tail-Recursive-Quicksort
-Instead of calling quicksort on the right array,
-it simply update the p value to the first element in the right array
-which is essentially the same functionality
-'''
+A k-sorted array is when each sum of k element is larger than its predecessor
+For example, in a array index as A[0, 10], k = 3, it is said to be k-sorted if:
+A[0] + A[1] + A[2] <= A[1] + A[2] + A[3]
+A[1] + A[2] + A[3] <= A[2] + A[3] + A[4]
+A[2] + A[3] + A[4] <= A[3] + A[4] + A[5] and so on
+
+a) If k = 1, then it is the same as a normal sorted array
+
+b) Example 2-sorted array: [1,3,2,8,100,9]
+
+c) every pair of neighbor k elements have common elements except for first and last.
+For example, A[0] + A[1] + A[2] and A[1] + A[2] + A[3].
+Both have A[1] and A[2]. To make the second greater than the first,
+A[0] must be less than A[3]
+
 
 '''
-stack depth is Theta(n) if the right part has size 0
-that is when p >= r, so for example [1,2,3,4,5]
-'''
-def tailQuickSort(A, p, r):
-	while (p < r):
-		q = partition(A, p ,r)
-		tailQuickSort(A, p, q - 1)
-		p = q + 1
-
-def partition(A, p, r):
-	x = A[r]
-	i = p - 1
-	for j in range(p, r):
-		if (A[j] <= x):
-			i += 1
-			temp = A[i]
-			A[i] = A[j]
-			A[j] = temp
-	temp = A[i + 1]
-	A[i + 1] = A[r]
-	A[r] = temp
-	return i + 1
-
 
 if __name__ == '__main__':
 	A = [2,8,7,1,3,5,6,4]
